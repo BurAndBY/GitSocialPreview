@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/beercss@3.3.1/dist/cdn/beer.min.css" rel="stylesheet">
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.3.1/dist/cdn/beer.min.js"></script>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.0.1/dist/cdn/material-dynamic-colors.min.js"></script>
+</head>
+<body>
+  <div class="field round border">
+    <input type="text" id="imageUrl">
+    <span class="helper">Enter Github Repo (username/repo) URL:</span>
+  </div> 
+  <button id="addImageBtn">Add Image</button>
+  <div id="imageContainer"></div>
+  
+  <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addImageBtn = document.getElementById("addImageBtn");
+            const imageContainer = document.getElementById("imageContainer");
+            const imageUrlInput = document.getElementById("imageUrl");
+
+            addImageBtn.addEventListener("click", function() {
+                const imageUrl = "https://opengraph.githubassets.com/cd531a290efbdca02520845c6c889298a4c3144ddf972752b2913eb3f48bbdad/" + imageUrlInput.value;
+                
+                if (imageUrl) {
+                    const imageElement = document.createElement("img");
+                    imageElement.src = imageUrl;
+                    imageElement.alt = "Image added dynamically";
+                    imageContainer.appendChild(imageElement);
+                }
+            });
+        });
+    </script>
+</body>
